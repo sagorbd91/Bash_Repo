@@ -1,0 +1,4 @@
+programmer 10000
+director 500000
+lead 300000
+manager 150000
