@@ -1,0 +1,35 @@
+how to concatenated or display the message?
+
+ cat bash.txt (it will give you the total display of the page)
+ cat bash.txt file_uitilities (first you can display bash.txt and then file_utilities)
+
+=======================
+
+word count
+
+wc bash.txt
+it will give you following
+1) number of lines
+2) number of words
+3) number of charecter
+
+wc -l bash.txt (to how many lines are there)
+
+========================
+
+sort 
+
+if you have 10 names
+
+sagor 
+tamal
+virendar
+shakti
+shuvo
+
+ sort <file name> 
+
+if you have numbers in the file how to sort them?
+ sort -n <file name>
+
+

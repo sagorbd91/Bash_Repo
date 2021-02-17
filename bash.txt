@@ -35,3 +35,10 @@ This is sample code to test replace of the LINE number 11 LINE number 5
 =========================
 
 set line number --> set nu
+
+========================
+
+To see the status of any files and folder then what you put ?
+# stat /BASH
+
+
