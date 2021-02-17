@@ -1,0 +1,37 @@
+# Navigateion
+
+Copy a line --> yy
+Paster a line --> p
+copy single lines --> yy
+Paste 10 times --> 10p 
+copy 3 lines --> 3yy
+paster 2 times --> 2p
+==================
+Last line --> shift + G
+undo --> u
+Delete --> dd
+
+=================
+Next Page --> ctrl + n
+Previous Page --> ctrl + p
+=================
+
+:10 --> (Go to specifided line)
+/ --> Foreward search
+
+===================
+
+Replace word in a sentence
+:1, $ s/line/my line/g       (g --> global, if you don't use g then it will replace only the first occurance)
+:27, 28 s/line/myline (do change in specific line)
+
+Here 27 is the 27th line and 28 is the 28th line. so we have a range of lines
+
+
+This is sample code to test replace of the LINE number 10 LINE number 4
+This is sample code to test replace of the LINE number 11 LINE number 5
+
+
+=========================
+
+set line number --> set nu
