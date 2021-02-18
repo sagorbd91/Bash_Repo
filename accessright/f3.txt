@@ -1,0 +1,1 @@
+ this is f3.txt in accessright directory

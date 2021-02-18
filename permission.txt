@@ -1,0 +1,44 @@
+# Change mode/permission
+
+chmod +x <filename>
+chmod 777 <filename>
+
+Symbolic Mode --> (u,g,o) - or + (r,w,x)
+========================================
+if you remove the read permission of any file from user then you can not write on the file eventually.This is unusual.
+if you have normal java file or C file you need to compile it first then it will create a new a.out file which would have all the
+permisssion. But in normal file you need to give permission manually.
+# gcc helloworld.c  (Command)
+
+
+Absolute Mode -->
+r --> 4
+w --> 2
+x --> 1
+
+664 (normal file permission by default)
+775 (normal directory permission by default)  
+764 (full permission for user who create the shell script. Group members and others can not execute the shell script)
+
+# chmod a+x sample.sh
+[In above users, group members and others will get the execute permission]
+
+# chmod -R a+rX linux/
+[Above command will recursively change mode of the linux folder. X:x it means only for directories and files already executable]
+it is very useful to open redursive access to directories without adding execution rights to all files.
+
+# chmod a+t /tmp 
+t: (sticky). Special poermission for directories, allowing only the directory and file owner to delete a file in a directory.
+useful for directories with write access to anyone like /tmp
+Displayed by ls -l with a t charecter
+
+# sudo chown sagor f1.txt 
+[change ownership of the file in the directoryi]
+
+# sudo chgrp sagor f1.txt 
+[change ownership of the group for the file in the directory]
+
+# sudo chown sagor:sagor f2.txt
+[change user and group at one shot.]
+
+
