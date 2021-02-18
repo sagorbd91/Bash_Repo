@@ -1,0 +1,32 @@
+# hard link and soft link
+===========================
+
+each and every file has a inode. In hardlink original file and hard link will be point to same inode. so if you delete the original
+file hard link will not be deleted. But there is a problem in hardlink which is you need to be in same file system. For example you
+have C drive and D drive file you can not link that. 
+
+
+In softlink you are linking with original file. if the original file removed your soft link will not work. In softlink 
+original file will get an Inode and softlink will get an Inode.
+
+# ls -li [it will give you the inode information of the file]
+
+# cd accessright [now we create a hardlink of previous folder file in the current file]
+# ln ../bash.txt bash_hardlink
+After putting the command of hardlink you can see inode number is same and the type will be 2 of the file in current directory.
+
+
+
+# ln -s ../bash.txt bash_softlink.txt[this is the softlink]
+# ls -li
+
+
+Checksum
+========
+
+# cksum <file name>
+# md5sum <file name>
+
+# md5sum permission.txt sample.txt > hash.txt
+
+[Check everything is fine or not] 
