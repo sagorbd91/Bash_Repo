@@ -1,0 +1,100 @@
+# For example you create a shell script and that script is creating data whic is unimportant to you. How you will discard that data?
+
+Solution: send your output to /dev/null
+
+# ls > /dev/null
+
+this data only you can discard you can not retrive the data.
+
+
+==========================================
+
+# for example you want to generate big files and all will be zeros. how can you get that ?
+
+# dd if=/dev/zero of=disk.img bs=2k count=2048
+
+dd is the low level copy from one location to another location.
+
+==========================================
+
+Process Utilities
+=================
+
+# ps 
+# tty [teletype writer]
+
+Process ID from 0 65535 or 32767 (configurable)
+# ps -ef
+
+you will see the all processes running with its ID and parent ID. PID 0 is schedule process and PID 1 is init process.
+
+root         1     0  0 08:32 ?        00:00:01 /usr/lib/systemd/systemd --switched-root --system --deserialize 21
+
+
+==========================================
+
+foreground and Background process
+# sleep 3 [forground process] 
+# ls
+untill the job done of foreground proecss other process can not be run. After finishing the sleep 3 process ls process will start.
+
+
+# sleep 5 & [Background process]
+Background process helps you to run process parallaly with other process.
+========================================
+
+switch from foreground to background
+# sleep 123
+
+1) first you need to stop the current running process. ctrl+z
+2) bg (turn it to background process)
+3) fg (you can invoke that process to run foreground)
+4) if you want to terminate the current process you can give CTRL+C or use the kill command
+
+========================================================
+
+if you want to see how many process is running you can run the command 
+# jobs
+# jobs -l 
+
+jobs -l will gives you the all jobs with the process ID.
+
+if you have lots of process in the background and you want to foreground specific process then what should you do ?
+
+# jobs -l
+# fg 1 [put the job ID]
+put the job ID after fg command.
+
+
+============================================================
+
+Each process opens 3 files by default
+
+1) Standard Output
+2) Standard Input
+3) Standard Error
+
+=======================================================
+
+Listing all process
+# ps -ux
+List all processes belonging to the current user
+# ps -auz 
+List all the process running on the System
+# ps -aux | grep bart | grep bash
+
+==================================================
+
+Displays most important process, sorted by CPU percentage. you can change the sorting order by typing M= Memory Usage, P=CPU percentage, T= Time. You can kill a task by typing k and the process ID.
+
+===============================================
+
+# kill <pids>
+sends an abort signal to the given process. Lets process save data and exit by themselves. Should be used first.
+
+# kill -9 <pids>
+sends a immediate termination signal. The system itself terminates the processes. Useful when a proces is really stuck 
+
+# killall <signal> <command>
+kill all the jobs running. For example # killall bash
+
