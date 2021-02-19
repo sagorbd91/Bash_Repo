@@ -1,0 +1,97 @@
+find commnad (to search for some files or specific files)
+
+# find . -name "f1.txt" [search exact name of the file in the current directory]
+# find . -print [list all the files in the current directory]
+# find /BASH -name "text\processing" [you can find from a particular directory]
+
+# find . -name f1.txt | ls -l [long listing of your f1 txt]
+
+# find . -name f1.txt -exec ls -l {} \; 
+above command help you find exact files and run some command on it.
+
+# find . -perm 777 
+it will check what are the files are in 777 permission.
+
+# find . -perm 777 -exec ls -l {} \;
+=======================================
+
+Locate command
+
+# locate f1.txt 
+[it will search in the particular database]
+whatever in the database locate will show that. for example you just create a file and search that with locate. you can not find it.
+you have to rerun the database.
+# locate -n 5 f1.txt
+it will give the first five searching result.
+
+# touch f12345.txt
+# locate f12345.txt [you can not find it]
+# locate -S [you can see where is the database of locate]
+
+to update database of locate you can put below command
+# sudo updatedb
+=====================================
+
+mtime which will find modification of files 
+
+# find . -mtime -2
+[last two days what we have modified]
+
+# stat file1 
+stat will gives you the access date, Modify date and Change date. change is what permission you have change in that particular file.
+
+===============================================
+
+
+Grep command is used for search words in the file.
+====================================================
+you are looking for a pattern inside the file.
+
+# grep -i pattern text\processing
+here [-i] is for ignore small or capital charecters.
+
+# grep -c pattern text\processing
+here [-c] is for counting the how many words in the file.
+
+# grep ^pa text\processing
+
+Here if any thing starts with pa it will search in the file. 
+
+# grep database\.$ text \ processing
+Here the command will show only the database word with dot and which resides last line.
+
+# grep [m,z,x] text\processing
+here it will search the ranges of words in the bracket. any of the one charecter
+
+# grep -i [a-e] text\processing
+
+===================================================================
+
+
+Mixing command
+
+# history
+
+
+if you want to see the word count and also the redirection both then you can use tee
+
+# wc f1.txt
+it will give you some line, word and charecter count
+
+# wc f1.txt > wc_op.txt
+# cat wc_op.txt
+
+
+when you need to do two things at a time. like you want to display and write output in the file you can run
+# wc f1.txt | tee wc_tee_out.txt
+
+it will show the output in the display and also write the command in the file.
+
+# wc f4.txt | tee -a  wc_tee_out.txt
+
+here tee will append the output with previous output.
+
+============================================
+
+# vmstat -s 
+it will give you virtual memory information along with physical memory. what are the buffers,sizes etc
