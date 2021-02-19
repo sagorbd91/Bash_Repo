@@ -1,0 +1,39 @@
+# Archiving and Compresing
+
+Archiving --> single file (Consisting of many files/directrories)
+
+1) Archiving (tar)
+2) Compress and Uncompress
+3) CPIO with tar (generate tar file using CPIO) 
+4) Archive + compress in one shot (tar)
+
+tar (Tape archive)
+c -> creating the archive
+t -> test
+x -> extract
+z -> 
+v -> verbose
+
+# tar -czvf BashArchive.tar Bash  
+Here we create a archive of BASH folder. 
+
+
+if you want to find some data and tar that output you can use CPIO command
+
+# find . -print | cpio -ov > testAR.cpio
+
+
+gzip --> # tar -czvf archive.tar.gz /home/bash
+z parameter is for gunzip and you need to mention the gz after the tar
+
+ 
+Bun Zip --> # tar -cjvf archive.tar.bz2 stuff
+j parameter is for bunzip and you need to mention the bz2 after the tar
+
+========================================================
+
+# tar -xzvf BashArchive.tar.gz
+Here we extract the archive of gunzip
+
+# tar -xjvf BashArchive.tar.bz2
+Here we extract the archive of bunzip 2
