@@ -1,0 +1,159 @@
+# User Management (who, whoami, groups, su, adduser, deluser, id, usermod, users)
+
+# Time Management(time, uptime)
+
+# init levels along with shutdown (init, shutdown, halt, systemctl)
+
+# Accessing administration (root) priviledge
+
+# package management (yum, apt, apt-get, apt-cache, dpkg)
+
+# networking (hostname, ifconfig, ping, dig, nslookup, route, traceroute, arp, ftp, sftp, scp, wget, telnet, ssh)
+
+# File system and devices
+
+
+how to add a user to a secondary group 
+# usermod -a -G sudo linuxize
+
+[a is append and -G is the option name of group separeted by]
+
+How to remove a user from a group
+# gpasswd -d username groupname
+
+how to change a user's primary group
+# usermod -g groupname username
+
+How to create a new user name "nathan" with primary group "users" and secondary groups wheel and developers
+
+# usermod -g users -G  developers nathan
+
+How to see the users in the exact group allocated
+# id -a nathan
+
+How to delete the user
+# userdel --remove-home nathan
+
+==============================================================
+
+Runlevels
+Init levels
+
+0 -> Shut Down
+1 -> Single user Mode (Administrative mode) for maintainence
+2 -> multiuser mode (No networking support)
+3 -> Fully multi-user mode (Networking support)
+6 -> reboot
+
+============================================
+
+immediately reboots the system
+# systemctl reboot -i
+
+Systemctl is a controlling interface and inspection tools for the widely-adopted init system and service manage systemd
+
+# systemctl list-dependencies
+
+# systemctl stop <service name>
+# systemctl start <service name>
+# systemctl enable <service name>
+# systemctl restart <service name>
+
+==========================================
+
+Viewing log messages
+# journalctl -> show all collected log messsages
+# journalctl -u network.service -> see network service messages
+# journalctl -f -> follow messages as they appear
+# jounnalctl -k -> show only kernel messages
+
+=======================================
+
+mount a directory with partition
+# sudo mount /dev/hda4 /home
+
+======================================
+
+
+Networking
+
+# hostname
+# hostname-ctl set-hostname <hostname>
+
+# host google.com [it will show the ip address of google.com name server]
+# host wipro.com
+
+
+# dig google.com
+# nslookup google.com
+
+# route -n
+# traceroute 8.8.8.8
+
+# netstat -ntulp
+
+
+# ifconfig eth0 down
+# route add default gw 192.168.0.1 
+
+# cat /etc/resolve.conf
+
+========================================
+
+
+ftp 192.168.1.5 
+username and password
+
+now you are in the remote system. 
+
+> bin
+> pwd
+> ls
+> get python_script.sh
+
+
+# sftp user@192.168.1.5:/home/user/*script* .
+from 192.168.1.5 to your system
+
+# sftp f1.txt user@192.168.15:/home/user
+from my system to remote system
+
+==========================================
+
+login to remote system 
+# ssh root@192.168.1.5
+
+
+=======================================
+copy a file from local system to remote system using SCP
+# scp jdk.linux.bin.rpm root@192.168.1.5:/opt
+
+copy a file from remote system to local system using SCP
+# scp root@192.168.1.5:/root/technical.doc /tmp
+
+verbose output
+scp -v root@192.168.1.5:/root/technical.doc /tmp
+
+copy files recursively
+# scp -r Downloads root@192.168.1.5
+
+Increase transfer speed by enabling compression
+# scp -r -C Downloads root@192.168.1.5:/mnt
+
+put the limit bandwidth while copying
+# scp -r -C -l 500 Downloads root@192.168.1.5:/mnt
+
+==============================================
+
+Creating file system
+
+format your USB key (1st partition raw data) in ext2 format
+# mkfs.ext2 /dev/sda1
+
+format your USB key back to FAT32 format
+#mkfs.vfat -v -F 32 /dev/sda1
+
+Blank Disk images can be created as in the bellow example (64 MB)
+# dd if=/dev/zero of=disk.img bs=1M count=64
+
+
