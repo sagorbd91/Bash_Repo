@@ -1,0 +1,109 @@
+# env 
+# getenv
+
+to check the environment variable. How you can check the environment variable ?
+Any service you are running that install and input and output data from Environment variable. 
+
+==============
+
+what is PATH ?
+when you put any command it will check that PATH variable and see it is executable or not. If it is present then it will execute from there. 
+
+=======================
+
+Local variable ?
+message="welcome"
+
+echo $message
+========================
+
+# echo $$
+two doller symbol will recognize your bash process ID.
+
+
+When you declare a local variable. and change the shell level by using bash command. then which variable you have declared will be gone. 
+
+# bash
+# echo $SHLVL
+# $message
+
+there will be nothig because whatever you declared in the previous shell that is parent shell. so in child shell that local variable will not be shown. 
+
+parent shell variable can not be visible in the child shell. but the child shell variable can be visible in Parent shell.
+
+how to solve ?
+
+# export message [this command will be in the parent shell] 
+# bash
+# echo $SHLVL
+# echo $message
+
+
+It will be available in the environment variable. because you have export it globally. 
+
+Another issue is there. if you open another terminal you can not find the variable you have created how can you solve that ?
+
+Solution: You need to provide this variable in profile file. 
+# vi ./bashrc  [it will be in the home directory]
+# vi ~./bashrc
+# message=welcome
+# echo "welcome to my shell"
+Now open a shell it will give you the 
+
+
+==========================================================
+
+First shell
+
+# vi firstshell.sh
+#!/bin/bash  or #!/usr/bin/env bash
+ls
+pwd 
+date
+
+if you dont put the shebang it will run because all command you have mentioned is a part of bash shell. so when you decrare thing which is not matched with bash shell then shebang constractor is mandatory.
+
+====================================
+
+User Defined variable
+Shell let the user define variables
+they can be reused in shell commands. convention is the lower case names.
+
+declare below lines in ./bashrc
+# projdir=/home/marshall/coolstuf
+# ls -la $projdir
+# cd $projdir
+
+=======================================
+# OS = Linux
+# echo $OS
+
+#bash export_test.sh
+output: OS=UNIX
+
+when you put the command bash with the script it will run in the sub shell.
+
+if you export the OS then it will show both output.
+
+# OS=UNIX
+# export OS
+# echo $OS
+
+
+#bash export_test.sh
+outout: 
+OS=Linux
+OS-UNIX
+
+==========================================
+
+why you need to put ./ before run the script?
+Because your current directory is not mentioned in PATH variable.
+
+Solution:
+# export PATH=.:$PATH
+# echo $PATH
+
+why we should not use that ? because hacker can put his file in currnet directory and execute his command easily.
+
+
