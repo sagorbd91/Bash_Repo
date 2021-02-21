@@ -1,0 +1,43 @@
+
+Single Quote
+variable can not be interpreted in single quote.
+for example
+
+# V1=10
+# echo 'V1 is $V1'
+
+output: V1 is $V1 which should be V1 is 10
+
+Solution: Double Quote can interprete variable.
+
+=================================================
+
+Back Quote
+
+myls=`ls`
+it will run the ls command and store the output in particular variable.
+
+===============================
+
+echo -e "hello\tWorld"
+
+================================
+
+# (date;pwd;ps -ef)
+if you use braces this command will run the in particular subshell. 
+================================
+
+if you want to unset the variable you can use the below command
+
+# unset myls
+
+==================================
+
+How to check true or false whne your command has been run or not ?
+# test 10 -eq 10
+# echo $?
+output is 0 means it is true
+
+# test 10 -ef 11
+# echo $?
+output is 1 means it is false.
