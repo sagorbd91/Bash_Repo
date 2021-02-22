@@ -1,0 +1,204 @@
+Operators with expr. Space is mandatory
+
+# v1=10
+# v2=20
+# expr $v1 + $v2
+
+
+space is very much mandatory.
+
+
+# res=$((v1+v2)) [if there is no expr then you can use the $(())]
+# echo $res
+
+let v1=12 v2=23 res=v1+v2
+echo $res
+
+if you dont want to use bracket and spaces you can use let command
+
+==========================================
+
+# s1="scripting"
+# expr length $s1
+
+it will give you the length
+
+# expr substr "$s1" 1 3
+
+it will give you the charecter from 1 to 3
+
+# expr length "$s1" 
+it will give you the length of the string which is stored in the variable
+
+# len=${#s1}
+# echo $len
+
+it will also give you the length
+======================================
+
+Augmented operator
+
+v1=10
+v2=20
+v1=`expr $v1 + $v2`
+echo $v1
+
+augmented operator. In above expression operator you have to use the expr.
+but below you need to use the let for augmented operator. 
+
+let v1=15 v2=34 v1+=v2
+echo $v1
+
+=======================================
+
+res=`expr $v2 \* $v1`
+if you use the meta charecter you need to use forward slash before it.
+
+=================================
+
+Increment operator
+v1=10
+v2=$((v1++))
+echo $v1 $v2
+
+output will be 11 and 10
+
+v1=10
+v2=$((v1))
+echo $v1
+
+output will be 11 and 11
+
+therefore we can see that in first v1++ method
+v2=v1, v1 += 1
+
+In second method
+v1 += 1, v2=v1
+
+
+==================================
+
+Relational Operator
+
+v1=10
+v2=20
+[ $v1 -lt $v2 ]
+echo $?  [it will give you the last command execution]
+
+[-lt -le -gt -ge -ne -eq] from this you can check the relation betrween two operands.
+
+[ $v1 -lt $v2 -o $v2 -lt $v3 ]  
+Logical or operation
+
+
+[ $v1 -lt $v2 -a $v2 -lt $v3 ]  
+
+
+[ ! $v1 -lt $v2 -a ! $v2 -lt $v3 ] 
+
+============================================
+
+String Operators
+
+=
+!=
+-z empty string or not
+
+
+s1="hi"
+s2="hello"
+[ $s1 = $s2 ]
+echo $?
+
+[ $s1 != $s2 ]
+echo $?
+
+let us check a empty string
+
+s4=""
+echo ":$s4:"
+
+[ -z $s4 ]
+echo $?
+
+[ -z $s1 ]
+echo $?
+ 
+String replacement
+==================
+s1="Shell Scripting"
+rs=${s1/Scripting/Bash Scripting}
+echo $rs
+
+
+Substring
+=========
+
+ s1="scripting"
+ expr length $s1
+
+it will give you the length
+
+expr substr "$s1" 1 3
+
+it will give you the charecter from 1 to 3
+
+Another way
+
+ss=${s1:3:6}
+echo $ss
+
+==================================
+
+Another string Replacement of first occurance
+
+mystr= "path of bash is /bin/bash"
+rs={mystr /bash/sh}
+echo $rs
+Output: {mystr /bash/sh}
+
+rs=${mystr /bash/sh}
+echo $rs
+output: path of sh is /bin/bash
+
+============================================
+
+Directory and File check
+
+mkdir srting
+mypwd=`pwd`
+[ -f $mypwd ]
+echo $?
+
+check this is file or not
+
+[ -d $mypwd ]
+echo $?
+
+
+=========================================
+
+file is exist or not checking?
+
+[ -e $mypwd ]
+echo $?
+
+
+====================================
+
+check read permission
+
+myfile=operators.txt
+[ -r $myfile ]
+echo $?
+
+
+check write permission
+[ -w $myfile ]
+echo $?
+
+=======================================
+
+v1=10
+v2=20
+[ $v1 -gt $v2 ] || echo "hi"
