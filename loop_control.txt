@@ -1,0 +1,15 @@
+Loop control Statements
+
+Senerio 1:
+let us assume one senerio we have 20 students. and you want to calculate marks and create a percentage. you want to access each student and fetch all marks and make an average.
+
+Senerio 2:
+Let us assume another senerio where 17 students are present but rest 3 are absent. So you can break the loop when you are calculating the number upto 17th student.You can use the Break Statement.
+
+Senerio 3:
+Let us assume another senerio where frequent studnets are absent like s1,s2,s3,s4,s6,s7,s8,s9.s11,s12.... in this series s5,s10,s17,s19 stduents are absent where you can not break the statement. So you have to ignore for absent students and calculate the marks for remaining students. you should not stop at s5. you can use the continue statement.
+
+
+
+
+
