@@ -1,0 +1,35 @@
+Arrays:
+when User need to put multiple input then its not so easy to put 100 times.At 
+that time we need array. we can store lots of entry in a sequential manner.
+
+In programming language like java and C array can store only one data type.
+but in Shell scripting you can store multiple type of data type. you can store
+integers along with string.
+
+Arrays is the indicies with 0 to number of elements.
+
+values:	10 	20	30	100	50
+arrays: 0	1	2	3	4
+
+
+Values:	apples	banana	orange	mango
+arrays:	0	1	2	3
+
+
+values: hello	world	20
+arrays:	0	1	2
+
+Arrays properties:
+Initialization
+Assignment
+
+
+fruits=(apple banana orange mango)
+${fruits[*]} --> for all the elements
+
+${fruits[@]} --> how you find the indexes.
+
+How you find the length of element?
+How you find the number of element in the array?
+
+
