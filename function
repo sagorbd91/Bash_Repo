@@ -1,0 +1,52 @@
+What is function?
+if youhave a big program, thousand of code. You can not write it without function. You can not write because there are so many disadvantages.
+
+code
+....
+
+code
+....
+
+common code...
+...
+
+common code...
+...
+
+for example the program you have build that have 50 lines but 20 lines are common. so processing time will be more. without using function if you change anything in the program you have to change in 20 places which is cumbersome. 
+
+by using function we are going to change in 1 places and 19 places will be change automatically. 
+
+
+mufunction()
+{
+commands
+#50 lines of code
+
+}
+
+myfunction
+
+myfunction
+
+
+anywhere you call the function. 
+
+
+=============================================
+
+Functions --> Built-in, User Defined
+
+Build in --> Echo, read, printf ....
+
+User defined --> It is a processing unit 
+
+	input ---> function ---> Output
+	Optional	 `	 Optional
+
+1) No input No output (just put a while loop and mention a comment and call that function to get that comment)
+2) No INPUT, Output (Random Number)
+3) Input. No output (Fibo series)
+4) Input, Output
+
+
